@@ -1,0 +1,11 @@
+{
+  "name": "openclaw-bot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "openclaw start --host 0.0.0.0 --port $PORT"
+  },
+  "dependencies": {
+    "openclaw": "latest"
+  }
+}
