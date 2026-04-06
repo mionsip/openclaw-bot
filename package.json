@@ -1,8 +1,11 @@
 {
   "name": "openclaw-bot",
-  "version": "1.0.0",
   "private": true,
+  "dependencies": {
+    "openclaw": "latest",
+    "@buape/carbon": "latest"
+  },
   "scripts": {
-    "start": "npx --yes openclaw start"
+    "start": "openclaw start"
   }
 }
