@@ -1,11 +1,10 @@
 {
   "name": "openclaw-bot",
-  "private": true,
-  "dependencies": {
-    "openclaw": "latest",
-    "@buape/carbon": "latest"
-  },
+  "version": "1.0.0",
   "scripts": {
-    "start": "openclaw start"
+    "start": "openclaw gateway start"
+  },
+  "dependencies": {
+    "openclaw": "latest"
   }
 }
