@@ -1,10 +1,8 @@
 {
   "name": "openclaw-bot",
   "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "start": "openclaw gateway start"
-  },
-  "dependencies": {
-    "openclaw": "latest"
+    "start": "node index.js"
   }
 }
