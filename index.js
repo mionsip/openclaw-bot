@@ -1,24 +1,9 @@
-const express = require("express");
-const app = express();
+\const TelegramBot = require("node-telegram-bot-api");
 
-// route để Railway ping
-app.get("/", (req, res) => {
-  res.send("OpenClaw is running!");
+const bot = new TelegramBot(process.env.TOKEN, {
+  polling: true
 });
 
-// chạy server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log("Server chạy cổng " + PORT);
+bot.on("message", (msg) => {
+  bot.sendMessage(msg.chat.id, "Bot đang chạy 🚀");
 });
-
-// ===== BOT CỦA BẠN =====
-// ví dụ Discord:
-const { Client } = require("discord.js");
-const client = new Client({ intents: [] });
-
-client.once("ready", () => {
-  console.log("Bot online!");
-});
-
-client.login(process.env.TOKEN);
