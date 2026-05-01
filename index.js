@@ -1,14 +1,14 @@
-import express from "express";
+export default async function onMessage(msg, { sendMessage }) {
+  try {
+    // bỏ tin nhắn của chính mình
+    if (msg.isSelf) return;
 
-const app = express();
+    await sendMessage(
+      msg.from,
+      "Đợi một chút tôi đang bận nhé!!!"
+    );
 
-// endpoint UptimeRobot cần
-app.get("/", (req, res) => {
-  res.status(200).send("OK");
-});
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log("Bot alive on port", PORT);
-});
+  } catch (err) {
+    console.error(err);
+  }
+}
