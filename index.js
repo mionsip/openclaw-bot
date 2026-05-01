@@ -1,14 +1,7 @@
-export default async function onMessage(msg, { sendMessage }) {
-  try {
-    // bỏ tin nhắn của chính mình
-    if (msg.isSelf) return;
+import express from "express";
 
-    await sendMessage(
-      msg.from,
-      "Đợi một chút tôi đang bận nhé!!!"
-    );
+const app = express();
 
-  } catch (err) {
-    console.error(err);
-  }
-}
+app.get("/", (req, res) => res.send("OK"));
+
+app.listen(process.env.PORT || 3000);
