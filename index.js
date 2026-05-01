@@ -1,21 +1,21 @@
-export default async function onMessage(msg, { sendMessage }) {
-  try {
-    if (msg.isSelf) return;
-
-    await sendMessage(
-      msg.from,
-      "Đợi một chút tôi đang bận nhé!!!"
-    );
-
-  } catch (err) {
-    console.error(err);
-  }
-}
 import express from "express";
+
 const app = express();
 
+// health check cho UptimeRobot
 app.get("/", (req, res) => {
   res.send("Bot is alive");
 });
 
-app.listen(process.env.PORT || 3000);
+// webhook / bot logic (giả lập)
+app.use(express.json());
+
+app.post("/webhook", (req, res) => {
+  console.log(req.body);
+  res.sendStatus(200);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Bot running on port", PORT);
+});
