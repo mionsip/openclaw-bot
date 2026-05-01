@@ -2,20 +2,13 @@ import express from "express";
 
 const app = express();
 
-// health check cho UptimeRobot
+// endpoint UptimeRobot cần
 app.get("/", (req, res) => {
-  res.send("Bot is alive");
-});
-
-// webhook / bot logic (giả lập)
-app.use(express.json());
-
-app.post("/webhook", (req, res) => {
-  console.log(req.body);
-  res.sendStatus(200);
+  res.status(200).send("OK");
 });
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log("Bot running on port", PORT);
+  console.log("Bot alive on port", PORT);
 });
